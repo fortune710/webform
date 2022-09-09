@@ -65,6 +65,7 @@ bookForm.addEventListener("submit", (event) => {
 
     fetch(API_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
