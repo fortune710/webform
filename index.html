@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Iqama Web Form</title>
+</head>
+<body>
+    <form id="form">
+        <h2>Add Mosque</h2>
+        <div class="form-group">
+            <label for="mosque-name">Mosque Name</label>
+            <input type="text" class="form-control" id="mosque-name" placeholder="Enter Mosque Name">
+        </div>
+
+        <div class="form-group">
+            <label for="mosque-address">Mosque Address</label>
+            <input type="text" class="form-control" id="mosque-address" placeholder="Enter Mosque Address">
+        </div>
+
+        <label>Coordinates</label>
+        <div class="form-row" aria-describedby="coorinates-description">
+            <div class="form-group col">
+                <label for="latitude">Latitude</label>
+                <input type="text" class="form-control" id="latitude" placeholder="Enter Latitude">
+            </div>
+
+            <div class="form-group col">
+                <label for="longitude">Longitude</label>
+                <input type="text" class="form-control" id="longitude" placeholder="Enter Longitude">
+            </div>
+        </div>    
+        <small id="coordinates-description">
+            If you are presently in the mosque, you can click the get coordinates button at the bottom,
+            otherwise you can check Google Maps for the right coordinates.
+        </small>
+
+        <div class="form-group">
+            <label for="imam-name">Imam Name</label>
+            <input type="text" class="form-control" id="imam-name" placeholder="Name of the Imam">
+        </div>
+
+        <div class="form-group">
+            <label for="phone-number-1">Phone Number</label>
+            <input type="text" class="form-control" id="phone-number-1" placeholder="Enter the person's phone number">
+        </div>
+
+        <label for="prayer-times">Prayer Times</label>
+        <div id="prayer-times">
+
+            <label for="fajr">Fajr</label>
+            <div id="fajr" class="form-row">
+                <div class="form-group col">
+                    <label for="fajr-azan-time">Azan Time</label>
+                    <input type="time" class="form-control" id="fajr-azan-time" placeholder="What position does this person hold?">
+                </div>   
+
+                <div class="form-group col">
+                    <label for="fajr-iqama-time">Iqama Time</label>
+                    <input type="time" class="form-control" id="fajr-iqama-time" placeholder="What position does this person hold?">
+                </div>        
+            </div>
+
+            <label for="dhuhr">Dhuhr</label>
+            <div id="dhuhr" class="form-row">
+                <div class="form-group col">
+                    <label for="dhuhr-azan-time">Azan Time</label>
+                    <input type="time" class="form-control" id="dhuhr-azan-time" placeholder="What position does this person hold?">
+                </div>   
+
+                <div class="form-group col">
+                    <label for="dhuhr-iqama-time">Iqama Time</label>
+                    <input type="time" class="form-control" id="dhuhr-iqama-time" placeholder="What position does this person hold?">
+                </div>        
+            </div>
+
+            <label for="asr">Asr</label>
+            <div id="asr" class="form-row">
+                <div class="form-group col">
+                    <label for="asr-azan-time">Azan Time</label>
+                    <input type="time" class="form-control" id="asr-azan-time" placeholder="What position does this person hold?">
+                </div>   
+
+                <div class="form-group col">
+                    <label for="asr-iqama-time">Iqama Time</label>
+                    <input type="time" class="form-control" id="asr-iqama-time" placeholder="What position does this person hold?">
+                </div>        
+            </div>
+
+            <label for="mahgrib">Maghrib</label>
+            <div id="mahgrib" class="form-row">
+                <div class="form-group col">
+                    <label for="mahgrib-azan-time">Azan Time</label>
+                    <input type="time" class="form-control" id="mahgrib-azan-time" placeholder="What position does this person hold?">
+                </div>   
+
+                <div class="form-group col">
+                    <label for="mahgrib-iqama-time">Iqama Time</label>
+                    <input type="time" class="form-control" id="mahgrib-iqama-time" placeholder="What position does this person hold?">
+                </div>        
+            </div>
+
+            <label for="isha">Isha</label>
+            <div id="isha" class="form-row">
+                <div class="form-group col">
+                    <label for="isha-azan-time">Azan Time</label>
+                    <input type="time" class="form-control" id="isha-azan-time" placeholder="What position does this person hold?">
+                </div>   
+
+                <div class="form-group col">
+                    <label for="isha-iqama-time">Iqama Time</label>
+                    <input type="time" class="form-control" id="isha-iqama-time" placeholder="What position does this person hold?">
+                </div>        
+            </div>
+
+            <label for="jumaat">Juma'at</label>
+            <div id="jumaat" class="form-row">
+                <div class="form-group col">
+                    <label for="jumaat-azan-time">Azan Time</label>
+                    <input type="time" class="form-control" id="jumaat-azan-time" placeholder="What position does this person hold?">
+                </div>   
+
+                <div class="form-group col">
+                    <label for="jumaat-iqama-time">Iqama Time</label>
+                    <input type="time" class="form-control" id="jumaat-iqama-time" placeholder="What position does this person hold?">
+                </div>        
+            </div>
+        </div>
+
+        <button class="btn btn-secondary" type="button" id="btn-coords">
+            Get Coordinates
+        </button>
+
+        <button class="btn btn-primary" type="submit">Add Mosque</button>    
+    </form>
+    <script src="./index.js"></script>
+</body>
+</html>

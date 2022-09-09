@@ -1,0 +1,18 @@
+{
+  "name": "iqama-webform",
+  "version": "1.0.0",
+  "description": "Form to get mosques and books",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "start"
+  ],
+  "author": "Fortune Alebiosu",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "moment": "^2.29.4"
+  }
+}
