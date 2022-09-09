@@ -92,6 +92,7 @@ form.addEventListener("submit", (event) => {
             name: mosqueName,
             address: mosqueAddress,
             imam_name: imamName,
+            denomination: "n/a",
             latitude: Number(latitude),
             longitude: Number(longitude),
             phone_number: contactPersonNumber,
