@@ -74,7 +74,7 @@ form.addEventListener("submit", (event) => {
         alert("Mosque added sucessfully")
         localStorage.setItem("mosque", JSON.stringify(result.data.reponse))
     })
-    .then(() => window.location.pathname = "books.html")
+    .then(() => window.location.pathname = "webform/books.html")
     .catch(() => {
         alert("Could not add mosque")
     })
