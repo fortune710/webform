@@ -1,5 +1,5 @@
 
-const API_URL = "https://iiqama-api.herokuapp.com/mosque"
+const API_URL = "https://iiqama-api.herokuapp.com/mosque/create"
 const form = document.getElementById("form");
 
 
@@ -28,38 +28,66 @@ form.addEventListener("submit", (event) => {
 
     const prayers = {
         fajr: {
-            azan: document.getElementById("fajr-azan-time")?.value,
-            iqama: document.getElementById("fajr-iqama-time")?.value
+            id: 1,
+            time : {
+                azan: document.getElementById("fajr-azan-time")?.value,
+                iqama: document.getElementById("fajr-iqama-time")?.value
+            }
         },
         dhuhr: {
-            azan: document.getElementById("dhuhr-azan-time")?.value,
-            iqama: document.getElementById("dhuhr-iqama-time")?.value
+            id: 2,
+            time: {
+                azan: document.getElementById("dhuhr-azan-time")?.value,
+                iqama: document.getElementById("dhuhr-iqama-time")?.value                
+            }
         },
         asr: {
-            azan: document.getElementById("asr-azan-time")?.value,
-            iqama: document.getElementById("asr-iqama-time")?.value
+            id: 3,
+            time: {
+                azan: document.getElementById("asr-azan-time")?.value,
+                iqama: document.getElementById("asr-iqama-time")?.value
+            }
         },
         maghrib: {
-            azan: document.getElementById("mahgrib-azan-time")?.value,
-            iqama: document.getElementById("mahgrib-iqama-time")?.value
+            id: 4,
+            time: {
+                azan: document.getElementById("mahgrib-azan-time")?.value,
+                iqama: document.getElementById("mahgrib-iqama-time")?.value
+            }
         },
         isha: {
-            azan: document.getElementById("isha-azan-time")?.value,
-            iqama: document.getElementById("isha-iqama-time")?.value
+            id: 5,
+            time: {
+                azan: document.getElementById("isha-azan-time")?.value,
+                iqama: document.getElementById("isha-iqama-time")?.value
+            }
         },
         jumaat: {
-            azan: document.getElementById("jumaat-azan-time")?.value,
-            iqama: document.getElementById("jumaat-iqama-time")?.value
+            id: 6,
+            time: {
+                azan: document.getElementById("jumaat-azan-time")?.value,
+                iqama: document.getElementById("jumaat-iqama-time")?.value
+            }
         },
     }
 
+    console.log(JSON.stringify({
+        name: mosqueName,
+        address: mosqueAddress,
+        imam_name: imamName,
+        denomination: "n/a",
+        latitude: Number(latitude),
+        longitude: Number(longitude),
+        phone_number: contactPersonNumber,
+        prayers: prayers
+    }))
     
-    fetch(API_URL+"/create", {
+    fetch(API_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
+        mode: "no-cors",
         body: JSON.stringify({
             name: mosqueName,
             address: mosqueAddress,
