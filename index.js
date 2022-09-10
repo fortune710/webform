@@ -1,7 +1,6 @@
-
+import axios from 'https://cdn.skypack.dev/axios';
 const API_URL = "https://iiqama-api.herokuapp.com/mosque/create"
 const form = document.getElementById("form");
-
 
 const getCoordinatesButton = document.getElementById("btn-coords").addEventListener("click", () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -81,25 +80,20 @@ form.addEventListener("submit", (event) => {
         phone_number: contactPersonNumber,
         prayers: prayers
     }))
+
+    const { fajr } = prayers
+    console.log(fajr)
     
-    fetch(API_URL, {
-        method: "POST",
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        },
-        mode: "no-cors",
-        body: JSON.stringify({
-            name: mosqueName,
-            address: mosqueAddress,
-            imam_name: imamName,
-            denomination: "n/a",
-            latitude: Number(latitude),
-            longitude: Number(longitude),
-            phone_number: contactPersonNumber,
-            prayers: prayers
-        })
+    axios.post(API_URL, {
+        name: mosqueName,
+        address: mosqueAddress,
+        imam_name: imamName,
+        denomination: "n/a",
+        latitude: Number(latitude),
+        longitude: Number(longitude),
+        phone_number: contactPersonNumber,
+        prayers: prayers
     })
-    .then(res => res.json())
     .then(result => {
         alert("Mosque added sucessfully")
         localStorage.setItem("mosque", JSON.stringify(result.data.reponse))
