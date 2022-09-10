@@ -1,7 +1,7 @@
 import axios from 'https://cdn.skypack.dev/axios';
 const API_URL = "https://iiqama-api.herokuapp.com/mosque/create"
 const form = document.getElementById("form");
-
+let mosque
 const getCoordinatesButton = document.getElementById("btn-coords").addEventListener("click", () => {
     navigator.geolocation.getCurrentPosition((position) => {
         console.log(position)
@@ -96,11 +96,93 @@ form.addEventListener("submit", (event) => {
     })
     .then(result => {
         alert("Mosque added sucessfully")
-        localStorage.setItem("mosque", JSON.stringify(result.data.reponse))
+        mosque = result.data
     })
-    .then(() => window.location.pathname = "webform/books.html")
     .catch(() => {
         alert("Could not add mosque")
     })
     
+})
+
+
+const addDayButton = document.getElementById("btn-add-day")
+const API_URL_2 = "https://iiqama-api.herokuapp.com/mosque-books/add"
+
+const days = []
+const list = document.getElementById("days")
+const btnShow = document.getElementById("btn-show")
+
+const book = {
+    name: "",
+    teacher: "",
+    days: []
+}
+
+
+
+addDayButton.addEventListener("click", (event) => {
+    const bookName = document.getElementById("book-name")?.value
+    const teacher = document.getElementById("book-teacher")?.value
+
+    let dayCode = parseInt(document.getElementById("book-day")?.value);
+    let time = document.getElementById("book-time").value;
+
+    book.name = bookName
+    book.teacher = teacher
+    
+    const day = {
+        code: dayCode,
+        startTime: time
+    }
+
+    const DAYS_OF_THE_WEEK = {
+        "0": "Sunday",
+        "1": "Monday",
+        "2": "Tuesday",
+        "3": "Wednesday",
+        "4": "Thursday",
+        "5": "Friday",
+        "6": "Saturday"
+    }
+
+    book.days = [...book.days, day]
+    const li = document.createElement("li")
+    li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center")
+    
+    const span = document.createElement("span")
+    span.setAttribute("class", "badge bg-primary rounded-pill")
+
+    let timeNode = document.createTextNode(time)
+    let dayNode = document.createTextNode(DAYS_OF_THE_WEEK[`${dayCode}`])
+
+    span.appendChild(timeNode)
+    li.appendChild(dayNode)
+    li.appendChild(span)
+    list.appendChild(li)
+    console.log(book)
+})
+
+
+
+
+const bookForm = document.getElementById('book-form')
+bookForm.addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    axios.post(API_URL_2, {
+        book: book,
+        mosque_id: mosque.response.id
+    })
+    .then(result => {
+        alert("Book added sucessfully")
+        book.name = ""
+        book.teacher = ""
+        book.days = []
+
+        bookForm.reset()
+    })
+    .catch(() => {
+        alert("Could not add book")
+    })
+
 })

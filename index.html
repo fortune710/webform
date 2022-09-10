@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
     <title>Iqama Web Form</title>
 </head>
@@ -134,8 +134,88 @@
             Get Coordinates
         </button>
 
+        
+
         <button class="btn btn-primary" type="submit">Add Mosque</button>    
+        <small>
+            Make sure to click "Add Mosque" first before adding books
+        </small>
     </form>
+
+    <form id="book-form">
+        <h2>Add Books</h2>
+        <p>Add books used in this mosque. You can add as many as you want but can only be done one at a time</p>
+        <div>
+            <div class="form-group">
+                <label for="book-name">Book Name</label>
+                <input type="text" class="form-control" id="book-name" placeholder="Enter Book Name">
+            </div>
+    
+            <div class="form-group">
+                <label for="book-teacher">Teacher</label>
+                <input type="text" class="form-control" id="book-teacher" placeholder="Enter the name of the person teaching this book">
+            </div>
+        </div>
+
+        <ul class="list-group" id="days">
+
+        </ul>
+
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add Days
+        </button>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add a day</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="book-day">Day of the week</label>
+                                <select class="form-select" id="book-day">
+                                    <option value="0">Sunday</option>
+                                    <option value="1">Monday</option>
+                                    <option value="2">Tuesday</option>
+                                    <option value="3">Wednesday</option>
+                                    <option value="4">Thursday</option>
+                                    <option value="5">Friday</option>
+                                    <option value="6">Saturday</option>
+                                </select>
+                                
+                            </div>
+                            
+                            <div class="form-group col">
+                                <label for="book-time">Time</label>
+                                <input type="time" class="form-control" id="book-time" placeholder="Enter the name of the person teaching this book">
+                            </div>
+                        </div>
+            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" id="btn-add-day" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button class="btn btn-primary btn-large" type="submit">
+        Submit Form
+    </button>
+
+    </form>
+
     <script type="module" src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

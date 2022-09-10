@@ -1,4 +1,3 @@
-console.log(localStorage.getItem("mosque"))
 const addDayButton = document.getElementById("btn-add-day")
 const API_URL = "https://iiqama-api.herokuapp.com/mosque-books/add"
 
