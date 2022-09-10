@@ -1,4 +1,4 @@
-const mosque = JSON.parse(localStorage.getItem("mosque"))
+console.log(localStorage.getItem("mosque"))
 const addDayButton = document.getElementById("btn-add-day")
 const API_URL = "https://iiqama-api.herokuapp.com/mosque-books/add"
 
@@ -63,6 +63,8 @@ const bookForm = document.getElementById('book-form')
 bookForm.addEventListener("submit", (event) => {
     event.preventDefault()
 
+    /*
+
     fetch(API_URL, {
         method: "POST",
         mode: "no-cors",
@@ -85,6 +87,6 @@ bookForm.addEventListener("submit", (event) => {
     })
     .catch(() => {
         alert("Could not add book")
-    })
+    })*/
 
 })
